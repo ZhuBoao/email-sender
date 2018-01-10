@@ -30,7 +30,7 @@ class EmailSender {
                     apiVersion: '2010-12-01',
                     region: 'us-east-1',
                     endpoint: 'email.us-east-1.amazonaws.com',
-                    accessKeyId: params.AKIAJRO5DK3MNLAABGCA,
+                    accessKeyId: params.AWS_ACCESS_KEY_ID,
                     secretAccessKey: params.AWS_SECRET_ACCESS_KEY
                 });
                 this.AWSReady = true;
