@@ -1,11 +1,38 @@
 {
-  "name": "simple-email-sender",
-  "version": "0.0.1",
+  "_from": "simple-email-sender@0.0.3",
+  "_id": "simple-email-sender@0.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-iUUrbAPx8TUS1JQ281LkSRIambKmVqnz1Mc4tiLz87wHxUdvL/Zqd3BvPr5khIrMx4v7WISsWfl2G6eKDbyNBQ==",
+  "_location": "/simple-email-sender",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "simple-email-sender@0.0.3",
+    "name": "simple-email-sender",
+    "escapedName": "simple-email-sender",
+    "rawSpec": "0.0.3",
+    "saveSpec": null,
+    "fetchSpec": "0.0.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/simple-email-sender/-/simple-email-sender-0.0.3.tgz",
+  "_shasum": "4f83b2d4221fceb7f112bb8a0b4315acba83e807",
+  "_spec": "simple-email-sender@0.0.3",
+  "_where": "/Users/zhuboao/Dropbox/coding-challenge/EmailService",
+  "bundleDependencies": false,
   "dependencies": {
     "@sendgrid/mail": "^6.1.4",
     "aws-sdk": "^2.176.0",
     "dotenv": "^4.0.0",
     "mailgun-js": "^0.14.1",
     "nodemailer": "^4.0.1"
-  }
+  },
+  "deprecated": false,
+  "description": "A simple Node e-mail sender",
+  "main": "simple-email-sender.js",
+  "name": "simple-email-sender",
+  "version": "0.0.3"
 }
