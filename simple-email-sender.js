@@ -12,29 +12,30 @@ class EmailSender {
         this.mailgunReady = false;
         this.AWSReady = false;
         // load user defined keys
-        if (params.hasOwnProperty('SENDGRID_API_KEY')) {
-            this.sgMail = require('@sendgrid/mail');
-            this.sgMail.setApiKey(params.SENDGRID_API_KEY);
-            this.sgMailReady = true;
+        if (params){
+            if (params.hasOwnProperty('SENDGRID_API_KEY')) {
+                this.sgMail = require('@sendgrid/mail');
+                this.sgMail.setApiKey(params.SENDGRID_API_KEY);
+                this.sgMailReady = true;
+            }
+            if (params.hasOwnProperty('MAILGUN_API_KEY')
+                && params.hasOwnProperty('MAILGUN_DOMAIN')) {
+                this.mailgun = require("mailgun-js")({apiKey: params.MAILGUN_API_KEY, domain: params.MAILGUN_DOMAIN});
+                this.mailgunReady = true;
+            }
+            if (params.hasOwnProperty('AWS_ACCESS_KEY_ID') &&
+                params.hasOwnProperty('AWS_SECRET_ACCESS_KEY')) {
+                this.AWS = require('aws-sdk');
+                this.ses = new this.AWS.SES({
+                    apiVersion: '2010-12-01',
+                    region: 'us-east-1',
+                    endpoint: 'email.us-east-1.amazonaws.com',
+                    accessKeyId: params.AKIAJRO5DK3MNLAABGCA,
+                    secretAccessKey: params.AWS_SECRET_ACCESS_KEY
+                });
+                this.AWSReady = true;
+            }
         }
-        if (params.hasOwnProperty('MAILGUN_API_KEY')
-            && params.hasOwnProperty('MAILGUN_DOMAIN')) {
-            this.mailgun = require("mailgun-js")({apiKey: params.MAILGUN_API_KEY, domain: params.MAILGUN_DOMAIN});
-            this.mailgunReady = true;
-        }
-        if (params.hasOwnProperty('AWS_ACCESS_KEY_ID') &&
-            params.hasOwnProperty('AWS_SECRET_ACCESS_KEY')) {
-            this.AWS = require('aws-sdk');
-            this.ses = new this.AWS.SES({
-                apiVersion: '2010-12-01',
-                region: 'us-east-1',
-                endpoint: 'email.us-east-1.amazonaws.com',
-                accessKeyId: params.AKIAJRO5DK3MNLAABGCA,
-                secretAccessKey: params.AWS_SECRET_ACCESS_KEY
-            });
-            this.AWSReady = true;
-        }
-
         // if no valid user-defined key, load standby key from .env file
         if (!this.sgMailReady && !this.mailgunReady && !this.AWSReady) {
             this.sgMail = require('@sendgrid/mail');
