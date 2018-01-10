@@ -1,0 +1,11 @@
+{
+  "name": "email-sender",
+  "version": "0.0.1",
+  "dependencies": {
+    "@sendgrid/mail": "^6.1.4",
+    "aws-sdk": "^2.176.0",
+    "dotenv": "^4.0.0",
+    "mailgun-js": "^0.14.1",
+    "nodemailer": "^4.0.1"
+  }
+}
