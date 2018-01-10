@@ -1,5 +1,5 @@
 {
-  "name": "email-sender",
+  "name": "simple-email-sender",
   "version": "0.0.1",
   "dependencies": {
     "@sendgrid/mail": "^6.1.4",
