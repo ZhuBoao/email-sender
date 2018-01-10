@@ -7,9 +7,10 @@ This is a simple Node e-mail sender. It ultlizes third-party e-mail server provi
   
   [Amazon SES](https://aws.amazon.com/ses/)
   
-  to send e-mails.
+  to send e-mails. If one of the services goes down, it can quickly failover to a another provider without affecting.
 
 To make use of this util:
+
 
 1.Install the packge though npm: 
 ```
@@ -20,7 +21,7 @@ npm install simple-email-sender
 2.Get your own api keys from [SendGrid](https://sendgrid.com/),[Mailgun](https://Mailgun.com/), or [Amazon SES](https://aws.amazon.com/ses/).
 
 
-3.Create your keys.env in your project like:
+3.Create your keys.env in your project root directory like:
 ```
 SENDGRID_API_KEY=xxxxx
 MAILGUN_API_KEY=xxxx
